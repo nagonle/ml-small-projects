@@ -100,6 +100,7 @@ X_test = faces.data[30:40]
 y_test = target_glasses[30:40]
 print y_test.shape[0]
 
+# Excluding images of one person
 select = np.ones(target_glasses.shape[0])
 select[30:40] = 0
 
@@ -111,4 +112,8 @@ if (verbose):
 svc_3 = SVC(kernel='linear')
 train_and_evaluate(svc_3, X_train, X_test, y_train, y_test)
 
+# To see example misclassified
+y_pred = svc_3.predict(X_test)
+eval_faces = [np.reshape(a, (64, 64)) for a in X_test]
+print_faces(eval_faces, y_pred, 10)
 
