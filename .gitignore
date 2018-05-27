@@ -102,3 +102,7 @@ ENV/
 
 # csv data files
 *.csv
+.ipynb_checkpoints
+.ipython
+.jupyter
+.local
